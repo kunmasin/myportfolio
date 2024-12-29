@@ -28,18 +28,17 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <style>
+      body{
+        background-image: linear-gradient(to right, rgb(0, 0, 34), rgba(6, 12, 103, 0.75)), url('hmm.png');
+        background-size: 100% 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        color: white;
+      }
       .blue{
         background-color: blue;
       }
-    h1{
-      font-size: 80px;
-      margin-top: -20px;
-      margin-bottom: 20px;
-    }
-    h2{
-      color: blue;
-      font-size: 40px;
-    }
+   
     a{
       color:white;
       text-decoration:none;
@@ -85,11 +84,11 @@
   }
   .about img{
     background-color: black;
-    width: 100%;
-    height: 60vh;
+    width: 80%;
+    height: 50vh;
   }
   .projects{
-    border: 1px solid black;
+    border: 1px solid white;
     text-align: center;
   }
   .projects img{
@@ -97,11 +96,33 @@
     height: 50vh;
     margin-bottom: 10px;
   }
+  .menu-toggle {
+    display: none;
+    font-size: 30px;
+    background-color: rgb(4, 88, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1001;
+}
+  .web-home{
+      
+}
+  .web-home h1{
+    font-size: 70px;
+    font-weight: bolder;
+  }
+
     </style>
   </head>
 
 <body class="">
-<nav class="bg-black d-flex text-white p-3 space">
+<button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+<nav id="nav-menu" class="bg-black d-flex text-white p-3 space">
 <%= link_to "Oniye Abdullahi", "/" %>
 <div class="">
 <%= link_to "Home Page", "/home" %>
@@ -116,5 +137,15 @@
 <footer>
 <p class="bg-black text-white text-center p-3 fixed-bottom">&copy; <%= Time.new.year %> Oniye Abdullahi</p>
 </footer>
+<script>
+			function toggleMenu() {
+				var menu = document.getElementById('nav-menu');
+				if (menu.style.display === 'block') {
+					menu.style.display = 'none';
+				} else {
+					menu.style.display = 'block';
+				}
+			}
+			</script>
   </body>
 </html>
